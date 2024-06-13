@@ -57,9 +57,9 @@ Screenshots
 
 <img width="598" alt="Screenshot 2024-06-13 065049" src="https://github.com/SalmanAhmed03/POS-system-/assets/124187700/608c9e87-0419-48f4-871d-ff6d86c6fe44">
 
+<img width="602" alt="Screenshot 2024-06-13 065206" src="https://github.com/SalmanAhmed03/POS-system-/assets/124187700/1b931ba0-b7a6-4313-b9f9-03ecc0a8e75b">
 
 
-Screenshot of the Operator Window.
 
 License
 This project is licensed under the MIT License - see the LICENSE file for details.
