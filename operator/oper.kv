@@ -1,0 +1,179 @@
+<FlatButton@ButtonBehavior+Label>:
+    font_size: 14
+<OperatorWindow>:
+    id: main_win
+    orientation: 'vertical'
+    canvas.before:
+        Color:
+            rgba: (1,1,1,1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    BoxLayout:
+        id: header
+        size_hint_y:None
+        height:40
+        Label: 
+            text: "Gleamify POS System"
+            size_hint_x: .9
+            bold: True
+            color: (1,0.39,0.28,0.8)
+        FlatButton:
+            id: loggedin_user
+            text: "Logged in as : " #+ root.username
+            size_hint_x: .1
+            color: (1,0.39,0.28,0.8)
+    
+    BoxLayout:
+        id: current
+        size_hint_y: None
+        height: 50
+        canvas.before:
+            Color:
+                rgba: (1,1,1,1)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        Button:
+            text: 'Current Item'
+            background_normal: ''
+            background_color: (1,0.39,0.28,1)
+            size_hint_x: .4
+        Button:
+            id: cur_product
+            text: 'Defualt Product'
+            background_normal: ''
+            background_color: (1,0.39,0.3,1)
+        Button:
+            id: cur_price
+            text: '0.00'
+            background_normal: ''
+            background_color: (1,0.39,0.28,0.8)
+            size_hint_x: .2
+    
+    BoxLayout:
+        padding: 10
+        BoxLayout:
+            id: product_details
+            orientation: 'vertical'
+            size_hint_x: .8
+            spacing: 10
+            BoxLayout:
+                id: product_labels
+                size_hint_y: None
+                height: 40
+                spacing: 10
+                padding: [0,10]
+                canvas.before:
+                    Color:
+                        rgba: (1,0.39,0.28,1)
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                FlatButton:
+                    text: 'Qty'
+                    size_hint_x: .2
+                FlatButton: 
+                    text: 'Product Code'
+                    size_hint_x: 1.3
+                FlatButton: 
+                    text: 'Disc'
+                    size_hint_x: .3
+                FlatButton: 
+                    text: 'Disc %'
+                    size_hint_x: .8
+                FlatButton: 
+                    text: 'VAT'
+                    size_hint_x: .5
+                FlatButton:
+                    text: 'Price'
+                    size_hint_x: .1
+                FlatButton:
+                    text: 'Product Total'
+                    size_hint_y: .1
+            BoxLayout:
+                id: product_input
+                size_hint_y: None
+                height: 30
+                spacing: 5
+                TextInput:
+                    id: qty_inp
+                    size_hint_x: .1
+                    
+                    
+                TextInput:
+                    id: code_inp
+                    size_hint_x: .3
+                    multiline: False
+                    on_text_validate: root.update_purchases()
+                    
+                TextInput: 
+                    id: disc_inp
+                    size_hint_x: .1
+                TextInput:
+                    id: disc_perc_inp
+                    size_hint_x: .1
+                TextInput: 
+                    id: vat_inp
+                    size_hint_x: .1
+                TextInput:
+                    id: price_inp
+                    size_hint_x: .1
+                TextInput: 
+                    id: total_inp
+                    size_hint_x: .2
+            BoxLayout:
+                id: add_to_cart
+                orientation: 'vertical'
+                BoxLayout:
+                    size_hint_y: None
+                    height: 30 
+                    canvas.before:
+                        Color:
+                            rgba: (1,0.39,0.28,0.8)
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                    Label:
+                        text: 'Code'
+                        size_hint_x: .3
+                    Label:
+                        text: 'Product Name'
+                        size_hint_x: .3
+                    Label:
+                        text: 'Quantity'
+                        size_hint_x: .1
+                    Label:
+                        text: 'Discount'
+                        size_hint_x: .1
+                    Label:
+                        text: 'Price'
+                        size_hint_x: .1
+                    Label:
+                        text: 'Product total'
+                        size_hint_x: .1
+                GridLayout:
+                    id: products
+                    cols: 1
+
+        BoxLayout:
+            id: preview
+            orientation: 'vertical'
+            size_hint_x: .2
+
+            TextInput:
+                id: receipt_preview
+                readonly: True
+                text: 'The Collector\n123 Main St\nKnowhere, Space\n\nTel: (555)-123-456\nReceipt No: \nDate: \n\n'
+    BoxLayout: 
+        id: footer
+        size_hint_y: None
+        height: 30
+        canvas.before:
+            Color: 
+                rgba: (1,0.39,0.28,0.8)
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        Label: 
+            text: 'Made  by  Salman'
